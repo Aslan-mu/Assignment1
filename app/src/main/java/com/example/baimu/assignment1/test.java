@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.baimu.assignment1.DBHelper;
 
 public class test {
 

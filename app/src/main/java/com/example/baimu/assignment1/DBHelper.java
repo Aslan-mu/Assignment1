@@ -1,7 +1,5 @@
 package com.example.baimu.assignment1;
 
-import android.util.Log;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
