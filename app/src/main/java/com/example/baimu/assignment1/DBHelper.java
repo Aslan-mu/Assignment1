@@ -1,3 +1,4 @@
+
 package com.example.baimu.assignment1;
 
 import java.sql.Connection;
@@ -7,26 +8,21 @@ import java.util.List;
 public class DBHelper {
 
 
-
-    public static Connection getConnection()
-    {
+    public static Connection getConnection() {
         String driver = "com.mysql.cj.jdbc.Driver";
 
-        String url="jdbc:mysql://database-1.ccxqtamsm5rg.us-east-2.rds.amazonaws.com:3306/innodb";
+        String url = "jdbc:mysql://database-1.ccxqtamsm5rg.us-east-2.rds.amazonaws.com:3306/innodb";
 
-        String username="admin";
-        String password="Aslanbaimu";
+        String username = "admin";
+        String password = "Aslanbaimu";
 
-        Connection conn=null;
+        Connection conn = null;
 
-        try
-        {
+        try {
             Class.forName(driver);
             conn = DriverManager.getConnection(url, username, password);
             return conn;
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
@@ -34,28 +30,22 @@ public class DBHelper {
 
     public static void main(String[] args) {
 
-        try
-        {
+        try {
             Connection conn = DBHelper.getConnection();
-            if(conn!=null)
-            {
+            if (conn != null) {
                 System.out.println("Connection is working now！");
-            }
-            else
-            {
+            } else {
                 System.out.println("Error！");
             }
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         Test t = new Test();
         List<User> temp = t.getUsers();
-        for (int i = 0; i< temp.size(); i++){
-            System.out.println("ID:"+ temp.get(i).getId());
-            System.out.println("Name:"+ temp.get(i).getName());
-            System.out.println("Pwd:"+ temp.get(i).getPwd());
+        for (int i = 0; i < temp.size(); i++) {
+            System.out.println("ID:" + temp.get(i).getId());
+            System.out.println("Name:" + temp.get(i).getName());
+            System.out.println("Pwd:" + temp.get(i).getPwd());
         }
 
     }
