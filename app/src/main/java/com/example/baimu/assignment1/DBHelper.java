@@ -12,7 +12,6 @@ public class DBHelper {
     {
         String driver = "com.mysql.cj.jdbc.Driver";
 
-
         String url="jdbc:mysql://database-1.ccxqtamsm5rg.us-east-2.rds.amazonaws.com:3306/innodb";
 
         String username="admin";
@@ -23,7 +22,7 @@ public class DBHelper {
         try
         {
             Class.forName(driver);
-            conn = DriverManager.getConnection(url, username, password); //连接数据库
+            conn = DriverManager.getConnection(url, username, password);
             return conn;
         }
         catch(Exception ex)
@@ -40,13 +39,11 @@ public class DBHelper {
             Connection conn = DBHelper.getConnection();
             if(conn!=null)
             {
-                System.out.println("Working now！");
-                //Log.i("Test","Working now！");
+                System.out.println("Connection is working now！");
             }
             else
             {
                 System.out.println("Error！");
-                //Log.i("Test","Error！");
             }
         }
         catch(Exception ex)
@@ -56,9 +53,9 @@ public class DBHelper {
         Test t = new Test();
         List<User> temp = t.getUsers();
         for (int i = 0; i< temp.size(); i++){
-            System.out.println(Integer.toString(temp.get(i).getId()));
-            System.out.println(temp.get(i).getName());
-            System.out.println(temp.get(i).getPwd());
+            System.out.println("ID:"+ temp.get(i).getId());
+            System.out.println("Name:"+ temp.get(i).getName());
+            System.out.println("Pwd:"+ temp.get(i).getPwd());
         }
 
     }
