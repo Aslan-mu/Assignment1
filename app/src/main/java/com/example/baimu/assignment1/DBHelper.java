@@ -2,39 +2,35 @@ package com.example.baimu.assignment1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.List;
 
 public class DBHelper {
 
-    private static final String driver = "com.mysql.cj.jdbc.Driver";
 
 
-    private static final String url="jdbc:mysql://database-2.ccxqtamsm5rg.us-east-2.rds.amazonaws.com:3306/mobile";
-
-    private static final String username="admin";
-    private static final String password="Aslanbaimu";
-
-    private static Connection conn=null;
-
-    static
+    public static Connection getConnection()
     {
+        String driver = "com.mysql.cj.jdbc.Driver";
+
+
+        String url="jdbc:mysql://database-1.ccxqtamsm5rg.us-east-2.rds.amazonaws.com:3306/innodb";
+
+        String username="admin";
+        String password="Aslanbaimu";
+
+        Connection conn=null;
+
         try
         {
             Class.forName(driver);
+            conn = DriverManager.getConnection(url, username, password); //连接数据库
+            return conn;
         }
         catch(Exception ex)
         {
             ex.printStackTrace();
         }
-    }
-
-    public static Connection getConnection() throws Exception
-    {
-        if(conn==null)
-        {
-            conn = DriverManager.getConnection(url, username, password); //连接数据库
-            return conn;
-        }
-        return conn;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -56,6 +52,13 @@ public class DBHelper {
         catch(Exception ex)
         {
             ex.printStackTrace();
+        }
+        Test t = new Test();
+        List<User> temp = t.getUsers();
+        for (int i = 0; i< temp.size(); i++){
+            System.out.println(Integer.toString(temp.get(i).getId()));
+            System.out.println(temp.get(i).getName());
+            System.out.println(temp.get(i).getPwd());
         }
 
     }

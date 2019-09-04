@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.util.Log;
 
 public class Test {
 
@@ -29,12 +30,13 @@ public class Test {
     public List getUsers(){
         list = new ArrayList<User>();
 
+//        Log.i("Test","In test now");
         try {
             conn=DBHelper.getConnection();  //从DBHelper获取连接对象
 
             // 创建statement 执行数据库语句，第一不预处理，第二步才是正式。执行的语句可以修改.
             // 不过为了防止SQl注入。骗取登录，所以最好创建它的子类PreparedStatement
-            pst = conn.prepareStatement("SELECT * FROM users");// 预处理
+            pst = conn.prepareStatement("SELECT * FROM User");// 预处理
 
             rs = pst.executeQuery();// 这里才是执行，获得数据。
 
