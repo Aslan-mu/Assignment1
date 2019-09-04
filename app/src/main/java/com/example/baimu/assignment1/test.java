@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class test {
+public class Test {
 
     // 数据库连接对象，注意：是导入“java.sql.Connection”此包下的连接对象。
     private static Connection conn = null;

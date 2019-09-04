@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         });
         Log.i("123","123");
 
-        test t = new test();
+        Test t = new Test();
         List<User> temp = t.getUsers();
 //        for (int i = 0; i< temp.size(); i++){
 //            Log.i("Id",Integer.toString(temp.get(i).getId()));
